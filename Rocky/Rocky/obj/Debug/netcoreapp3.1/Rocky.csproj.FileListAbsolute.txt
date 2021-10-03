@@ -426,3 +426,14 @@ D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Category\Crea
 D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Project\Index.cshtml.g.cs
 D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Project\Create.cshtml.g.cs
 D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Index.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Create.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Delete.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\ApplicationType\Edit.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Product\Upsert.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\bin\Debug\netcoreapp3.1\Baseline.dll
+D:\Coding\My\Rocky\Rocky\Rocky\bin\Debug\netcoreapp3.1\DryIoc.dll
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
+D:\Coding\My\Rocky\Rocky\Rocky\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_IndividualProductCard.cshtml.g.cs

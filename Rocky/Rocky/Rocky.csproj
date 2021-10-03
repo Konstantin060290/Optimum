@@ -6,6 +6,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210928201952_ApplicationTypeToDb.cs" />
+    <Compile Remove="Migrations\20210928201952_ApplicationTypeToDb.Designer.cs" />
+    <Compile Remove="Migrations\20210928202104_AppTypeToDb.cs" />
+    <Compile Remove="Migrations\20210928202104_AppTypeToDb.Designer.cs" />
+    <Compile Remove="Migrations\20210928202514_AppTypeToDbNew.cs" />
+    <Compile Remove="Migrations\20210928202514_AppTypeToDbNew.Designer.cs" />
+    <Compile Remove="Migrations\20211002102352_AppTypeForeignKeyToProduct.cs" />
+    <Compile Remove="Migrations\20211002102352_AppTypeForeignKeyToProduct.Designer.cs" />
+    <Compile Remove="Migrations\20211002145557_AppTyptoDbNew.cs" />
+    <Compile Remove="Migrations\20211002145557_AppTyptoDbNew.Designer.cs" />
+    <Compile Remove="Migrations\20211002150055_AppTypeToDbbnew.cs" />
+    <Compile Remove="Migrations\20211002150055_AppTypeToDbbnew.Designer.cs" />
+    <Compile Remove="Migrations\20211002172807_ATtoD2.cs" />
+    <Compile Remove="Migrations\20211002172807_ATtoD2.Designer.cs" />
+    <Compile Remove="Migrations\20211002173234_ATtoD3.cs" />
+    <Compile Remove="Migrations\20211002173234_ATtoD3.Designer.cs" />
+    <Compile Remove="Migrations\20211002173416_ATtoD3.cs" />
+    <Compile Remove="Migrations\20211002173416_ATtoD3.Designer.cs" />
+    <Compile Remove="Migrations\20211002174242_ATtoD3.cs" />
+    <Compile Remove="Migrations\20211002174242_ATtoD3.Designer.cs" />
+    <Compile Remove="Migrations\Hlam\20211002150200_AppTypeToDbbnew.cs" />
+    <Compile Remove="Migrations\Hlam\20211002150200_AppTypeToDbbnew.Designer.cs" />
+    <Compile Remove="Migrations\Hlam\20211002155138_ATtoDB.cs" />
+    <Compile Remove="Migrations\Hlam\20211002155138_ATtoDB.Designer.cs" />
+    <Compile Remove="Migrations\Hlam\20211002172027_ATtoD2.cs" />
+    <Compile Remove="Migrations\Hlam\20211002172027_ATtoD2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Baseline" Version="3.2.1" />
+    <PackageReference Include="DryIoc.dll" Version="4.8.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19">
@@ -14,6 +45,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\Hlam\" />
+    <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 
 </Project>

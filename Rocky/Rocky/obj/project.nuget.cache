@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ynrO3Jt5CBIRxogEsirYkjrBAVZo4qNry5Nvfiu042JjCw8mcvXKJ4mx1MRdJ8g9PovgL0K6nUztHN1daJ65MA==",
+  "dgSpecHash": "p3WFn+fqEezDcwVkPz0etkc5sgfTrN65GtA+gwpYrhLBmKlx4tF2yLoOqGCzDBdxc16SpRWflLdAQaENJu/vOg==",
   "success": true,
   "projectFilePath": "D:\\Coding\\My\\Rocky\\Rocky\\Rocky\\Rocky.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\RFRsk\\.nuget\\packages\\baseline\\3.2.1\\baseline.3.2.1.nupkg.sha512",
+    "C:\\Users\\RFRsk\\.nuget\\packages\\dryioc.dll\\4.8.1\\dryioc.dll.4.8.1.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.19\\microsoft.aspnetcore.mvc.razor.extensions.3.1.19.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.19\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.19.nupkg.sha512",
