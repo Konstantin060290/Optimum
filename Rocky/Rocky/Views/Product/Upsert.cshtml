@@ -1,15 +1,14 @@
 ﻿@model Rocky.Models.ViewModels.ProductVM
-@{ 
-    var title = "Create Product";
+@{
+    var title = "Создать изделие";
 }
 
 <form method="post" enctype="multipart/form-data">
     @if (Model.Product.Id != 0)
         {
-        title = "Edit product";
+        title = "Изменить изделие";
         <input asp-for="Product.Id" hidden />
         }
-
 
     <div class=" border p-3">
         <div class="form-group row">
@@ -29,11 +28,11 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="Product.Price"></label>
+                        <label asp-for="Product.DesignNumber"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Product.Price" class="form-control" />
-                        <span asp-validation-for="Product.Price" class="text-danger"></span>
+                        <input asp-for="Product.DesignNumber" class="form-control" />
+                        <span asp-validation-for="Product.DesignNumber" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -56,10 +55,19 @@
                         <span asp-validation-for="Product.Description" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.Status"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product.Status" class="form-control" />
+                        <span asp-validation-for="Product.Status" class="text-danger"></span>
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <div class="col-4">
-                        Image
+                        <label asp-for="Product.Image"></label>
                     </div>
                     <div class="col-8">
                         <input type="file" name="files" id="uploadbox" multiple class="form-control" />
@@ -71,11 +79,41 @@
                         <label asp-for="Product.CategoryId"></label>
                     </div>
                     <div class="col-8">
-                        <select asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" class="form-control">
-                            <option selected>--Select Category--</option>
+                        <select id="selectSquad" asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" onchange="ProductAddParam()" class="form-control">
+                            <option selected>--Выберите тип оборудования--</option>
                         </select>
                         <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
                     </div>
+                </div>
+                @{
+                    if (Model.Product.Name != null && Model.Product.Name.Contains("ПГА"))
+                        {
+                        <div id="Dampener" style="display:flow">
+                            <partial name="_PulsationDampenerAdditionalProperties" />
+                        </div>}
+                    else
+                        { <div id="Dampener" style="display:none">
+                            <partial name="_PulsationDampenerAdditionalProperties" />
+                        </div>
+                        }
+                }
+                <div id="Dampener" style="display:none">
+                    <partial name="_PulsationDampenerAdditionalProperties" />
+                </div>
+                @{
+                    if (Model.Product.Name != null && Model.Product.Name.Contains("НД"))
+                        {
+                        <div id="NdNdm" style="display:flow">
+                            <partial name="_MeteringPumpAdditionalProperties" />
+                        </div>}
+                    else
+                        { <div id="NdNdm" style="display:none">
+                            <partial name="_MeteringPumpAdditionalProperties" />
+                        </div>
+                        }
+                }
+                <div id="NdNdm" style="display:none">
+                    <partial name="_MeteringPumpAdditionalProperties" />
                 </div>
 
 
@@ -85,7 +123,7 @@
                     </div>
                     <div class="col-8">
                         <select asp-for="Product.ApplicationTypeId" asp-items="@Model.ApplicationTypeSelectList" class="form-control">
-                            <option selected>--Select application type--</option>
+                            <option selected>--Выберите область применения--</option>
                         </select>
                         <span asp-validation-for="Product.ApplicationTypeId" class="text-danger"></span>
                     </div>
@@ -93,20 +131,17 @@
 
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
-
                         <div class="col">
-
                             @if (Model.Product.Id != 0)
                                 {
                                 //update
-                                <input type="submit" class="btn btn-info w-100" value="Update" />
+                                <input type="submit" class="btn btn-info w-100" value="Обновить" />
                                 }
                             else
                                 {//create
-                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Create" />
+
+                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Создать" />
                                 }
-
-
                         </div>
                         <div class="col">
                             <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-arrow-left"></i></a>
@@ -116,45 +151,69 @@
             </div>
             <div class="col-4">
                 @* Keep this empty *@
-                @if(Model.Product.Id !=0)
+                @if (Model.Product.Id != 0)
                     {
-                <img src="@WC.ImagePath@Model.Product.Image" width="100%" style="border-radius:5px border:1px solid #bbb" />
-                }
-                
+                    <img src="@WC.ImagePath@Model.Product.Image" style="border-radius:5px; border:1px solid #bbb; width:100%" />
+                    }
+
             </div>
         </div>
     </div>
 </form>
-@section Scripts{
+
+@section Scripts
+{
 
     @{
-<partial name="_ValidationScriptsPartial" />}
-
-
-<script>
-
-    $(document).ready(function () {
-        $('.summernote').summernote(
-            {
-                height:250
-            }
-        );
-    });
-
-    function validateInput() {
-        if (document.getElementById("uploadbox").value == "")
-        {
-            Swal.fire(
-                'Error!',
-                'Please, upload an image!',
-                'error'
-            )
-            return false;
-        }
-        return true;
+        <partial name="_ValidationScriptsPartial" />
     }
-</script>
 
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote(
+                {
+                    height: 150
+                }
+            );
+        });
+    </script>
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadbox").value == "") {
+                Swal.fire(
+                    'Ошибка!',
+                    'Пожалуйста, загрузите изображение!',
+                    'ошибка'
+                )
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <script>
+        function ProductAddParam() {
+        var select = document.getElementById('selectSquad');
+        var text = select.options[select.selectedIndex].text;
+        if (text == "Пневмогидроаккумуляторы типа ПГА") {
+            var findPGA = document.getElementById('Dampener');
+            findPGA.style = "display: flow";
+            var findND = document.getElementById('NdNdm');
+            findND.style = "display: none";
+        }
+        else if (text == "Агрегаты электронасосные типа НД и НДМ") {
+            var findPGA = document.getElementById('Dampener');
+            findPGA.style = "display: none";
+            var findND = document.getElementById('NdNdm');
+            findND.style = "display: flow";
+        }
+        else {
+            var findND = document.getElementById('NdNdm');
+            findND.style = "display: none";
+            var findPGA = document.getElementById('Dampener');
+            findPGA.style = "display: none";
+        }
+    }
+    </script>
 }
 
 

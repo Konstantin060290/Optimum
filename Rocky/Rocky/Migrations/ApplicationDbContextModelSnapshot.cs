@@ -244,7 +244,7 @@ namespace Rocky.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DisplayOrder")
+                    b.Property<int>("CategoryNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -263,27 +263,88 @@ namespace Rocky.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Adjustable")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ApplicationTypeId")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<double>("Cell")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ConnectType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("DN")
+                        .HasColumnType("float");
+
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesignNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExplosionProofPGA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExplosionProofPump")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MaterialOfFlowPartPGA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaterialOfFlowPartPump")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("NPIPR")
+                        .HasColumnType("float");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
+                    b.Property<double>("P1")
+                        .HasColumnType("float");
+
+                    b.Property<double>("P2PGA")
+                        .HasColumnType("float");
+
+                    b.Property<double>("P2max")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Power")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Qapacity")
                         .HasColumnType("float");
 
                     b.Property<string>("ShortDesc")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Stroke_length")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Strokes")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TypePGA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypePump")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Volume")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -292,24 +353,6 @@ namespace Rocky.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product");
-                });
-
-            modelBuilder.Entity("Rocky.Models.Project", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Project");
                 });
 
             modelBuilder.Entity("Rocky.Models.ApplicationUser", b =>

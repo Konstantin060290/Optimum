@@ -43,7 +43,7 @@ namespace Rocky.Utility
                     "From",
                     new JObject {
                     {"Email", "rfrsk@yandex.ru"},
-                    {"Name", "Optimum system"}
+                    {"Name", "Система Optimum"}
                     }
                     }, {
                     "To",

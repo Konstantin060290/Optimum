@@ -10,8 +10,8 @@ using Rocky.Data;
 namespace Rocky.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211008193540_AddFullNameToUsersTable2")]
-    partial class AddFullNameToUsersTable2
+    [Migration("20211017083607_SecondRecovery")]
+    partial class SecondRecovery
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -170,12 +170,10 @@ namespace Rocky.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -212,12 +210,10 @@ namespace Rocky.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -250,7 +246,7 @@ namespace Rocky.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DisplayOrder")
+                    b.Property<int>("CategoryNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -260,6 +256,74 @@ namespace Rocky.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Rocky.Models.Filter", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cell")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConnectType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("DN")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ExplosionProof")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("P2")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Filter");
+                });
+
+            modelBuilder.Entity("Rocky.Models.MeteringPump", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Adjustable")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("DN")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ExplosionProof")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaterialOfFlowPart")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("NPIPR")
+                        .HasColumnType("float");
+
+                    b.Property<double>("P1")
+                        .HasColumnType("float");
+
+                    b.Property<double>("P2max")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Power")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Qapacity")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Stroke_length")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Strokes")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MeteringPump");
                 });
 
             modelBuilder.Entity("Rocky.Models.Product", b =>
@@ -278,15 +342,15 @@ namespace Rocky.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DesignNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
 
                     b.Property<string>("ShortDesc")
                         .HasColumnType("nvarchar(max)");
@@ -300,22 +364,26 @@ namespace Rocky.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("Rocky.Models.Project", b =>
+            modelBuilder.Entity("Rocky.Models.PulsationDampener", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("ExplosionProof")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<double>("P2")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Volume")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Project");
+                    b.ToTable("PulsationDampener");
                 });
 
             modelBuilder.Entity("Rocky.Models.ApplicationUser", b =>
@@ -379,6 +447,24 @@ namespace Rocky.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Rocky.Models.Filter", b =>
+                {
+                    b.HasOne("Rocky.Models.Product", "Product")
+                        .WithOne("Filter")
+                        .HasForeignKey("Rocky.Models.Filter", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Rocky.Models.MeteringPump", b =>
+                {
+                    b.HasOne("Rocky.Models.Product", "Product")
+                        .WithOne("MeteringPump")
+                        .HasForeignKey("Rocky.Models.MeteringPump", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Rocky.Models.Product", b =>
                 {
                     b.HasOne("Rocky.Models.ApplicationType", "ApplicationType")
@@ -390,6 +476,15 @@ namespace Rocky.Migrations
                     b.HasOne("Rocky.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Rocky.Models.PulsationDampener", b =>
+                {
+                    b.HasOne("Rocky.Models.Product", "Product")
+                        .WithOne("PulsationDampener")
+                        .HasForeignKey("Rocky.Models.PulsationDampener", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

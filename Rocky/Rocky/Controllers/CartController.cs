@@ -79,6 +79,7 @@ namespace Rocky.Controllers
                 productListSB.ToString());
 
             await _emailSender.SendEmailAsync(WC.EmailAdmin, subject, messageBody);
+            HomeVM homeVM = new HomeVM();
 
                 return RedirectToAction(nameof(InquiryConfirmation));
             }

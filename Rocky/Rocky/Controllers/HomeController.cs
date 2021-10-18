@@ -25,7 +25,7 @@ namespace Rocky.Controllers
             _db = db;
             }
 
-        public IActionResult Index()
+        public IActionResult Index(string DesignNumber)
             {
             HomeVM homeVM = new HomeVM()
                 {
@@ -34,6 +34,52 @@ namespace Rocky.Controllers
                 };
 
             return View(homeVM);
+            }
+
+        [HttpPost, ActionName("Index")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Filter(string DesignNumber, double P2PGA)
+            {
+            if (DesignNumber != null & P2PGA != 0)
+                {
+                HomeVM homeVM = new HomeVM()
+                    {
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Categories = _db.Category,
+                    DesignNumber = DesignNumber,
+                    P2PGA = P2PGA
+                    };
+                return View(homeVM);
+                }
+            if (DesignNumber != null & P2PGA == 0)
+                {
+                HomeVM homeVM = new HomeVM()
+                    {
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Categories = _db.Category,
+                    DesignNumber = DesignNumber
+                    };
+                return View(homeVM);
+                }
+            if (DesignNumber == null & P2PGA != 0)
+                {
+                HomeVM homeVM = new HomeVM()
+                    {
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Categories = _db.Category,
+                    P2PGA = P2PGA
+                    };
+                return View(homeVM);
+                }
+            else
+                {
+                HomeVM homeVM = new HomeVM()
+                    {
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Categories = _db.Category
+                    };
+                return View(homeVM);
+                }
             }
 
         public IActionResult Privacy()

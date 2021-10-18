@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\Hlam\**" />
+    <Content Remove="Migrations\Hlam\**" />
+    <EmbeddedResource Remove="Migrations\Hlam\**" />
+    <None Remove="Migrations\Hlam\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20210928201952_ApplicationTypeToDb.cs" />
     <Compile Remove="Migrations\20210928201952_ApplicationTypeToDb.Designer.cs" />
     <Compile Remove="Migrations\20210928202104_AppTypeToDb.cs" />
@@ -26,12 +33,28 @@
     <Compile Remove="Migrations\20211002173416_ATtoD3.Designer.cs" />
     <Compile Remove="Migrations\20211002174242_ATtoD3.cs" />
     <Compile Remove="Migrations\20211002174242_ATtoD3.Designer.cs" />
-    <Compile Remove="Migrations\Hlam\20211002150200_AppTypeToDbbnew.cs" />
-    <Compile Remove="Migrations\Hlam\20211002150200_AppTypeToDbbnew.Designer.cs" />
-    <Compile Remove="Migrations\Hlam\20211002155138_ATtoDB.cs" />
-    <Compile Remove="Migrations\Hlam\20211002155138_ATtoDB.Designer.cs" />
-    <Compile Remove="Migrations\Hlam\20211002172027_ATtoD2.cs" />
-    <Compile Remove="Migrations\Hlam\20211002172027_ATtoD2.Designer.cs" />
+    <Compile Remove="Migrations\20211014194625_PumpAndDampenerToDb.cs" />
+    <Compile Remove="Migrations\20211014194625_PumpAndDampenerToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211014194721_PumpAndDampenerToDb.cs" />
+    <Compile Remove="Migrations\20211014194721_PumpAndDampenerToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211016170723_RenameDisplayOrderForCategory.cs" />
+    <Compile Remove="Migrations\20211016170723_RenameDisplayOrderForCategory.Designer.cs" />
+    <Compile Remove="Migrations\20211016171141_RenameDisplOrderForCategory.cs" />
+    <Compile Remove="Migrations\20211016171141_RenameDisplOrderForCategory.Designer.cs" />
+    <Compile Remove="Migrations\20211016171928_AddFilterToDb.cs" />
+    <Compile Remove="Migrations\20211016171928_AddFilterToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211016225126_CorrectedConnectionBwProductPD.cs" />
+    <Compile Remove="Migrations\20211016225126_CorrectedConnectionBwProductPD.Designer.cs" />
+    <Compile Remove="Migrations\20211016225605_CorrectedConnectionBwProductPD.cs" />
+    <Compile Remove="Migrations\20211016225605_CorrectedConnectionBwProductPD.Designer.cs" />
+    <Compile Remove="Migrations\20211016230542_SolveProblemConnetionBetweenTables.cs" />
+    <Compile Remove="Migrations\20211016230542_SolveProblemConnetionBetweenTables.Designer.cs" />
+    <Compile Remove="Migrations\20211016230653_SolveProblemConnetionBetweenTables.cs" />
+    <Compile Remove="Migrations\20211016230653_SolveProblemConnetionBetweenTables.Designer.cs" />
+    <Compile Remove="Migrations\20211017083607_SecondRecovery.cs" />
+    <Compile Remove="Migrations\20211017083607_SecondRecovery.Designer.cs" />
+    <Compile Remove="Migrations\20211017083841_AddVirtual.cs" />
+    <Compile Remove="Migrations\20211017083841_AddVirtual.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +64,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19">
       <PrivateAssets>all</PrivateAssets>
@@ -51,7 +75,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\Hlam\" />
     <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 

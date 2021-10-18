@@ -9,23 +9,44 @@ namespace Rocky.Models
     {
     public class Product
         {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        public string ShortDesc { get; set; }
-        public string Description { get; set; }
-        [Range(1, int.MaxValue)]
-        public double Price { get; set; }
-        public string Image { get; set; }
-        [Display(Name= "Category Type")]
-        public int CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
+        //Общие параметры
+        [Key]public int Id { get; set; }
+        [Required][Display(Name = "Условное наименование")] public string Name { get; set; }
+        [Display(Name = "Краткое описание")] public string ShortDesc { get; set; }
+        [Display(Name = "Описание")] public string Description { get; set; }
+        [Required][Display(Name = "Обозначение")] public string DesignNumber { get; set; }
+        [Display(Name = "Изображение")] public string Image { get; set; }
+        [Required][Display(Name = "Тип оборудования")] public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")][Display(Name = "Тип оборудования")] public virtual Category Category { get; set; }
+        [Required][Display(Name = "Область применения")] public int ApplicationTypeId { get; set; }
+        [ForeignKey("ApplicationTypeId")] [Display(Name = "Область применения")] public virtual ApplicationType ApplicationType { get; set; }
+        [Display(Name = "Статус конструкторской документации")] public string Status { get; set; }
 
-        [Display(Name = "Application Type")]
-        public int ApplicationTypeId { get; set; }
-        [ForeignKey("ApplicationTypeId")]
-        public virtual ApplicationType ApplicationType { get; set; }
+        //Насосные агрегаты
+        [Display(Name = "Длина хода ползуна, мм")] public double Stroke_length { get; set; }
+        [Display(Name = "Число двойных ходов ползуна в мин.")] public double Strokes { get; set; }
+        [Display(Name = "Подача, л/ч")] public double Qapacity { get; set; }
+        [Display(Name = "Максимальное давление на выходе, кгс/см2")] public double P2max { get; set; }
+        [Display(Name = "Максимальное давление на входе, кгс/см2 (абс.)")] public double P1 { get; set; }
+        [Display(Name = "Мощность эДв, кВт")] public double Power { get; set; }
+        [Display(Name = "Надкавитационное давление на всасывании, кгс/см2 (абс.)")] public double NPIPR { get; set; }
+        [Display(Name = "Условный проход, мм")] public double DN { get; set; }
+        [Display(Name = "Возможность регулирования подачи изменением длины хода плунжера на ходу (да/нет)")] public string Adjustable { get; set; }
+        [Display(Name = "Исполнение по взрывозащите")] public string ExplosionProofPump { get; set; }
+        [Display(Name = "Материал проточной части")] public string MaterialOfFlowPartPump { get; set; }
+        [Display(Name = "Тип изделия")] public string TypePump { get; set; }
+
+        //ПГА
+        [Display(Name = "Тип изделия")] public string TypePGA { get; set; }
+        [Display(Name = "Полный газовый объем, л")] public float Volume { get; set; }
+        [Display(Name = "Максимальное давление, кгс/см2")] public double P2PGA { get; set; }
+        [Display(Name = "Исполнение по взрывозащите")] public string ExplosionProofPGA { get; set; }
+        [Display(Name = "Материал проточной части")] public string MaterialOfFlowPartPGA { get; set; }
+
+
+        //Фильтры
+
+        [Display(Name = "Тип присоединения к фильтру")] public string ConnectType { get; set; }
+        [Display(Name = "Величина ячейки, мкм")] public double Cell { get; set; }
         }
     }

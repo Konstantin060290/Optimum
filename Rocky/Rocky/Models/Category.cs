@@ -12,11 +12,12 @@ namespace Rocky.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [DisplayName("Тип оборудования")]
         public string Name { get; set; }
         [Required]
-        [Range(1, int.MaxValue,ErrorMessage ="Display oredr for category must be greather then 0.")]
-        [DisplayName("Display Order")]
-        public int DisplayOrder { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Номер типа оборудования должен быть больше 0")]
+        [DisplayName("Номер типа оборудования")]
+        public int CategoryNumber { get; set; }
 
         }
     }

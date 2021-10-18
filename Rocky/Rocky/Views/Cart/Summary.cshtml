@@ -7,11 +7,11 @@
             <div class="card">
                 <div class="card-header bg-dark text-light ml-0 row container">
                     <div class="col-6">
-                        <i class="fa fa-shopping-bag"></i> &nbsp;
-                        Your opitmal choice
+                        <i class="fa fa-file-medical"></i> &nbsp;
+                        Оптимальный выбор оборудования
                     </div>
                     <div class="col-6 text-right">
-                        <a class="btn btn-outline-info btn-sm">Back to Choice</a>
+                        <a class="btn btn-outline-info btn-sm" asp-controller="Home" asp-action="Index">Вернуться к выбору оборудования</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -20,12 +20,12 @@
                             <div class="col-12 col-lg-7 pb-4">
                                 <div class="row">
                                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                        <span class="text-info">Details of user:</span>
+                                        <span class="text-info">Пользователь:</span>
                                     </h4>
                                 </div>
                                 <div class="row my-1">
                                     <div class="col-3">
-                                        <label>Name</label>
+                                        <label>Имя</label>
                                     </div>
                                     <div class="col-9">
                                         <input asp-for="ApplicationUser.Fullname" type="text" class="form-control" />
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="row my-1">
                                     <div class="col-3">
-                                        <label>Phone</label>
+                                        <label>Телефон</label>
                                     </div>
                                     <div class="col-9">
                                         <input asp-for="ApplicationUser.PhoneNumber" type="text" class="form-control" />
@@ -55,7 +55,7 @@
                             <div class="col-12 col-lg-5 row">
                                 <div class="col-12">
                                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                        <span class="text-info">Summary:</span>
+                                        <span class="text-info">Выбранные изделия:</span>
                                     </h4>
                                     <ul class="list-group mb-3">
                                         @for (int i =0; i<Model.ProductList.Count(); i++)
@@ -65,7 +65,7 @@
                                             <li class="list-group-item d-flex justify-content-between">
                                                 <div>
                                                     <h6 class="my-0">@Model.ProductList[i].Name</h6>
-                                                    <small class="text-muted">Number:</small>
+                                                    <small class="text-muted"><label asp-for="ProductList[i].DesignNumber"/></small>
                                                 </div>
                                             </li>
                                             }
@@ -78,7 +78,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-12 col-md-5 offset-md-7">
-                            <button type="submit" class="btn btn-primary form-control">Sent to e-mail</button>
+                            <button type="submit" class="btn btn-primary form-control">Отправить на e-mail</button>
                         </div>
                     </div>
                 </div>

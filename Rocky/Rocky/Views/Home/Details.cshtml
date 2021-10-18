@@ -9,27 +9,105 @@
                     <div class="col-12 col-md-6">
                         <h1 class="text-white">@Model.Product.Name</h1>
                     </div>
-                    @*<div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-warning">@Model.Product.Price</h1>
-                    </div>*@
                 </div>
                 <div class="card-body">
                     <div class="container rounded p-2">
                         <div class="row">
                             <div class="col-12 col-lg-4 p-1 text-center">
-                                <img src="@WC.ImagePath@Model.Product.Image" width="100%" class="rounded" />
+                                <img src="@WC.ImagePath@Model.Product.Image" style="width:100%" class="rounded" />
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
-
                                     <div class="col-12">
                                         <span class="badge p-3 border" style="background-color:lavenderblush">@Model.Product.Category.Name</span>
                                         <span class="badge p-3 border" style="background-color:azure">@Model.Product.ApplicationType.Name</span>
                                         <h3 class="text-success"></h3>
-
                                         <p class="text-secondary">@Html.Raw(Model.Product.Description)</p>
                                     </div>
-
+                                    <div class="container rounded p-2">
+                                        <div class="row">
+                                            <label asp-for="@Model.Product.DesignNumber"></label>
+                                            <span> : @Model.Product.DesignNumber</span>
+                                        </div>
+                                        <div class="row">
+                                            <label asp-for="@Model.Product.Name"></label>
+                                            <span> : @Model.Product.Name</span>
+                                        </div>
+                                        <div class="row">
+                                            <label asp-for="@Model.Product.Status"></label>
+                                            <span> : @Model.Product.Status</span>
+                                        </div>
+                                    </div>
+                                    @if (Model.Product.Name.Contains("ПГА"))
+                                        {
+                                        <div class="container rounded p-2">
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.TypePGA"></label>
+                                                <span> : @Model.Product.TypePGA</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.Volume"></label>
+                                                <span> : @Model.Product.Volume</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.P2PGA"></label>
+                                                <span> : @Model.Product.P2PGA</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.MaterialOfFlowPartPGA"></label>
+                                                <span> : @Model.Product.MaterialOfFlowPartPGA</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.ExplosionProofPGA"></label>
+                                                <span> : @Model.Product.ExplosionProofPGA</span>
+                                            </div>
+                                        </div>
+                                        }
+                                    @if (Model.Product.Name.Contains("НД"))
+                                        {
+                                        <div class="container rounded p-2">
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.TypePump"></label>
+                                                <span> : @Model.Product.TypePump</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.Qapacity"></label>
+                                                <span> : @Model.Product.Qapacity</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.P2max"></label>
+                                                <span> : @Model.Product.P2max</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.P1"></label>
+                                                <span> : @Model.Product.P1</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.NPIPR"></label>
+                                                <span> : @Model.Product.NPIPR</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.Power"></label>
+                                                <span> : @Model.Product.Power</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.Strokes"></label>
+                                                <span> : @Model.Product.Strokes</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.Stroke_length"></label>
+                                                <span> : @Model.Product.Stroke_length</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.MaterialOfFlowPartPump"></label>
+                                                <span> : @Model.Product.MaterialOfFlowPartPump</span>
+                                            </div>
+                                            <div class="row">
+                                                <label asp-for="@Model.Product.ExplosionProofPump"></label>
+                                                <span> : @Model.Product.ExplosionProofPump</span>
+                                            </div>
+                                        </div>
+                                        }
                                 </div>
                             </div>
                         </div>
@@ -38,18 +116,17 @@
                 <div class="card-footer bg-dark">
                     <div class="row">
                         <div class="col-12 col-md-6 pb-1 ">
-                            <a asp-action="Index" class="btn btn-success btn-square form-control btn-lg" style="height:50px;">Back to List</a>
+                            <a asp-action="Index" class="btn btn-success btn-square form-control btn-lg" style="height:50px;">Вернуться</a>
                         </div>
                         <div class="col-12 col-md-6 ">
                             @if (Model.ExistInCart)
                                 {
-                                <button asp-action="RemoveFromCart" asp-route-id="@Model.Product.Id" class="btn btn-warning btn-square form-control btn-lg" style="height:50px;">Remove from Choice</button>
+                                <button asp-action="RemoveFromCart" asp-route-id="@Model.Product.Id" class="btn btn-warning btn-square form-control btn-lg" style="height:50px;">Удалить из выбора</button>
                                 }
                             else
-                                {<button type="submit" asp-route="@Model.Product.Id" class="btn btn-info form-control btn-lg" style="height:50px;">Add to Choice</button>
+                                {<button type="submit" asp-route="@Model.Product.Id" class="btn btn-info form-control btn-lg" style="height:50px;">Добавить к выбору</button>
 
                                 }
-
 
                         </div>
                     </div>

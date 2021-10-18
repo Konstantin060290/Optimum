@@ -10,8 +10,8 @@ using Rocky.Data;
 namespace Rocky.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211008190607_scuffoldIdentity")]
-    partial class scuffoldIdentity
+    [Migration("20211017181819_ChangeTypesSomeProperties")]
+    partial class ChangeTypesSomeProperties
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,6 +84,10 @@ namespace Rocky.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -135,6 +139,8 @@ namespace Rocky.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -164,12 +170,10 @@ namespace Rocky.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -206,12 +210,10 @@ namespace Rocky.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -244,7 +246,7 @@ namespace Rocky.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DisplayOrder")
+                    b.Property<int>("CategoryNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -263,27 +265,85 @@ namespace Rocky.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Adjustable")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ApplicationTypeId")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<double>("Cell")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ConnectType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("DN")
+                        .HasColumnType("float");
+
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesignNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExplosionProofPGA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExplosionProofPump")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MaterialOfFlowPartPGA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaterialOfFlowPartPump")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("NPIPR")
+                        .HasColumnType("float");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
+                    b.Property<double>("P1")
+                        .HasColumnType("float");
+
+                    b.Property<double>("P2PGA")
+                        .HasColumnType("float");
+
+                    b.Property<double>("P2max")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Power")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Qapacity")
                         .HasColumnType("float");
 
                     b.Property<string>("ShortDesc")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Stroke_length")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Strokes")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TypePGA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypePump")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Volume")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -294,22 +354,14 @@ namespace Rocky.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("Rocky.Models.Project", b =>
+            modelBuilder.Entity("Rocky.Models.ApplicationUser", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Fullname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Project");
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

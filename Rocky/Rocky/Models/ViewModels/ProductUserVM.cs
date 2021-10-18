@@ -10,5 +10,7 @@ namespace Rocky.Models.ViewModels
         public ApplicationUser ApplicationUser { get; set; }
         public IList<Product> ProductList { get; set; }
 
+        public HomeVM homeVM { get; set; }
+
         }
     }

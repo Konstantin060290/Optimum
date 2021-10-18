@@ -37,6 +37,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.19",
           "Microsoft.AspNetCore.Identity.UI": "3.1.19",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.19",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.19",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.19",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
@@ -784,7 +785,7 @@
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "Microsoft.Bcl.HashCode": "1.1.1",
-          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.19",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.11",
           "Microsoft.EntityFrameworkCore.Analyzers": "3.1.19",
           "Microsoft.Extensions.Caching.Memory": "3.1.19",
           "Microsoft.Extensions.DependencyInjection": "3.1.19",
@@ -803,15 +804,15 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/3.1.19": {
+      "Microsoft.EntityFrameworkCore.Abstractions/5.0.11": {
         "runtime": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "3.1.19.0",
-            "fileVersion": "3.100.1921.41707"
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "5.0.11.0",
+            "fileVersion": "5.0.1121.47202"
           }
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/3.1.19": {},
@@ -4175,12 +4176,12 @@
       "path": "microsoft.entityframeworkcore/3.1.19",
       "hashPath": "microsoft.entityframeworkcore.3.1.19.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/3.1.19": {
+    "Microsoft.EntityFrameworkCore.Abstractions/5.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Dyyg1gT3D4uQaKFJ7hd3liDyEfBm3mh4j0YLSk/XpWU1a3APY2hMAdqBmKR2/yXbGsGyHo9UhvZ+qrhmvaD5fA==",
-      "path": "microsoft.entityframeworkcore.abstractions/3.1.19",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.3.1.19.nupkg.sha512"
+      "sha512": "sha512-Ut1BeIwAavUncIChZ0jM7qdqVsnLI1i2eCn/7rdqpVW/JldPFMQzlCMBtiq7dGuVMSniDNUnc93olYtttyD/Fg==",
+      "path": "microsoft.entityframeworkcore.abstractions/5.0.11",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.5.0.11.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Analyzers/3.1.19": {
       "type": "package",

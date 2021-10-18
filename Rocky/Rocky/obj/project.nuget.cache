@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bwjo/e3DcFqE+tTlNi6CCVeE2mc23qNeTFV2DzVV/uube+apZwkLp6RmZwqFRdyBBSSdsJDwgy6IqdfgcuJ/aQ==",
+  "dgSpecHash": "Ce6S8SI0JIez41zojJFXt0uHKnEXlHAHHgdGqqKMxnSLcg7c7p0zC4A4GJze+aA5PyrG/1IxciXmLBveKjgyag==",
   "success": true,
   "projectFilePath": "D:\\Coding\\My\\Rocky\\Rocky\\Rocky\\Rocky.csproj",
   "expectedPackageFiles": [
@@ -28,7 +28,7 @@
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.data.sqlclient\\1.1.3\\microsoft.data.sqlclient.1.1.3.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.19\\microsoft.entityframeworkcore.3.1.19.nupkg.sha512",
-    "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.19\\microsoft.entityframeworkcore.abstractions.3.1.19.nupkg.sha512",
+    "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.11\\microsoft.entityframeworkcore.abstractions.5.0.11.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.19\\microsoft.entityframeworkcore.analyzers.3.1.19.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.19\\microsoft.entityframeworkcore.design.3.1.19.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.19\\microsoft.entityframeworkcore.relational.3.1.19.nupkg.sha512",

@@ -33,31 +33,12 @@ namespace Rocky.Controllers
             {
             IEnumerable<Product> objList = _db.Product.Include(u=>u.Category).Include(u=>u.ApplicationType);
 
-            //foreach(var obj in objList)
-            //    {
-            //    obj.Category = _db.Category.FirstOrDefault(u => u.Id == obj.CategoryId);
-            //    obj.ApplicationType = _db.ApplicationType.FirstOrDefault(u => u.Id == obj.ApplicationTypeId);
-            //    }
-
-
             return View(objList);
             }
 
         //GET-Upsert
         public IActionResult Upsert(int? id)
             {
-
-            //IEnumerable<SelectListItem> CategoryDropDown = _db.Category.Select(i => new SelectListItem
-            //    {
-            //    Text = i.Name,
-            //    Value = i.Id.ToString()
-            //    }
-            //);
-
-            //ViewBag.CategoryDropDown = CategoryDropDown;
-
-            //Product product = new Product();
-
             ProductVM productVM = new ProductVM()
                 {
                 Product = new Product(),
@@ -70,9 +51,8 @@ namespace Rocky.Controllers
                     {
                     Text = i.Name,
                     Value = i.Id.ToString()
-                    })
-
-                };
+                    })                
+                }; 
 
             if(id == null)
                 {
@@ -94,7 +74,7 @@ namespace Rocky.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(ProductVM productVM)
             {
-           if (ModelState.IsValid)
+            if (ModelState.IsValid)
                 {
                 var files = HttpContext.Request.Form.Files;
                 string webRootPath = _webHostEnvironment.WebRootPath;
@@ -168,7 +148,8 @@ namespace Rocky.Controllers
                 return NotFound();
                 }
 
-            Product product = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).FirstOrDefault(u => u.Id == id);
+            Product product = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType)
+                .FirstOrDefault(u => u.Id == id);
             
             if (product == null)
                 {

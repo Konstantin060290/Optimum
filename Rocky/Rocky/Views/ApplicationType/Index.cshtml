@@ -5,11 +5,11 @@
     <div class="row p-4">
         <div class="col-6">
             <h2 class="text-primary">
-                Application types
+                Области применения
             </h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-controller="ApplicationType" asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> &nbsp; Create new ApplicationType</a>
+            <a asp-controller="ApplicationType" asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> &nbsp; Добавить область применения</a>
         </div>
     </div>
     <br />
@@ -20,7 +20,8 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>ApplicationType name</th>
+                    <th>Область применения</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +44,7 @@
         }
     else
         {
-        <p>No application types exist</p>
+        <p>Нет добавленных областей применения</p>
         }
 
 </div>

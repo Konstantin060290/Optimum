@@ -2,21 +2,21 @@
 
 namespace Rocky.Migrations
 {
-    public partial class updateProject : Migration
+    public partial class StatusToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Description",
-                table: "Project",
+                name: "Status",
+                table: "Product",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Description",
-                table: "Project");
+                name: "Status",
+                table: "Product");
         }
     }
 }

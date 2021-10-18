@@ -2,7 +2,7 @@
 
 namespace Rocky.Migrations
 {
-    public partial class AddFullNameToUsersTable : Migration
+    public partial class AddVirtual : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
