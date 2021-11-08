@@ -46,14 +46,6 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Baseline": {
-              "target": "Package",
-              "version": "[3.2.1, )"
-            },
-            "DryIoc.dll": {
-              "target": "Package",
-              "version": "[4.8.1, )"
-            },
             "Mailjet.Api": {
               "target": "Package",
               "version": "[1.2.3, )"

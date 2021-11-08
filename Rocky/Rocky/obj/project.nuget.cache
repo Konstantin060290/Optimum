@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "Ce6S8SI0JIez41zojJFXt0uHKnEXlHAHHgdGqqKMxnSLcg7c7p0zC4A4GJze+aA5PyrG/1IxciXmLBveKjgyag==",
+  "dgSpecHash": "ggiJhJrpLgrIU0v7xiWAtrUJf7kJupX0Zoh65Kzliwqi/qj2Kq1m0usMcQojvLyz1UXoBVt/g7bdWYZ+jCh4SA==",
   "success": true,
   "projectFilePath": "D:\\Coding\\My\\Rocky\\Rocky\\Rocky\\Rocky.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\RFRsk\\.nuget\\packages\\baseline\\3.2.1\\baseline.3.2.1.nupkg.sha512",
-    "C:\\Users\\RFRsk\\.nuget\\packages\\dryioc.dll\\4.8.1\\dryioc.dll.4.8.1.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\mailjet.api\\1.2.3\\mailjet.api.1.2.3.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.19\\microsoft.aspnetcore.cryptography.internal.3.1.19.nupkg.sha512",
     "C:\\Users\\RFRsk\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.19\\microsoft.aspnetcore.cryptography.keyderivation.3.1.19.nupkg.sha512",

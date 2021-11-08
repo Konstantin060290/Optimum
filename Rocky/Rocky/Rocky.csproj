@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\Hlam\**" />
+    <Compile Remove="Migrations\Old\**" />
     <Content Remove="Migrations\Hlam\**" />
+    <Content Remove="Migrations\Old\**" />
     <EmbeddedResource Remove="Migrations\Hlam\**" />
+    <EmbeddedResource Remove="Migrations\Old\**" />
     <None Remove="Migrations\Hlam\**" />
+    <None Remove="Migrations\Old\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,11 +59,33 @@
     <Compile Remove="Migrations\20211017083607_SecondRecovery.Designer.cs" />
     <Compile Remove="Migrations\20211017083841_AddVirtual.cs" />
     <Compile Remove="Migrations\20211017083841_AddVirtual.Designer.cs" />
+    <Compile Remove="Migrations\20211024181405_modifyFluid.cs" />
+    <Compile Remove="Migrations\20211024181405_modifyFluid.Designer.cs" />
+    <Compile Remove="Migrations\20211025192815_FluidPartMaterialToDb.cs" />
+    <Compile Remove="Migrations\20211025192815_FluidPartMaterialToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211025200258_AddCodeNameToFPM.cs" />
+    <Compile Remove="Migrations\20211025200258_AddCodeNameToFPM.Designer.cs" />
+    <Compile Remove="Migrations\20211028183638_AddFluidFluidPartMaterailToDb.cs" />
+    <Compile Remove="Migrations\20211028183638_AddFluidFluidPartMaterailToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211028184828_AddFluidFluidPartMaterailToDbNew.cs" />
+    <Compile Remove="Migrations\20211028184828_AddFluidFluidPartMaterailToDbNew.Designer.cs" />
+    <Compile Remove="Migrations\20211030184800_addMaterialFromDb.cs" />
+    <Compile Remove="Migrations\20211030184800_addMaterialFromDb.Designer.cs" />
+    <Compile Remove="Migrations\20211030190419_FlPMtoDb.cs" />
+    <Compile Remove="Migrations\20211030190419_FlPMtoDb.Designer.cs" />
+    <Compile Remove="Migrations\20211030194303_ChangeMaterialToDb.cs" />
+    <Compile Remove="Migrations\20211030194303_ChangeMaterialToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211031205114_addRequirementsToDb.cs" />
+    <Compile Remove="Migrations\20211031205114_addRequirementsToDb.Designer.cs" />
+    <Compile Remove="Migrations\20211106173442_AddSomeInfToDb.cs" />
+    <Compile Remove="Migrations\20211106173442_AddSomeInfToDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Baseline" Version="3.2.1" />
-    <PackageReference Include="DryIoc.dll" Version="4.8.1" />
+    <Compile Include="Migrations\Old\ApplicationDbContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Mailjet.Api" Version="1.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.19" />
@@ -76,6 +102,13 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\product\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Fluid\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

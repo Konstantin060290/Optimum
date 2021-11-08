@@ -64,7 +64,24 @@
                         <span asp-validation-for="Product.Status" class="text-danger"></span>
                     </div>
                 </div>
-
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.minTemp"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product.minTemp" class="form-control" />
+                        <span asp-validation-for="Product.minTemp" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.maxTemp"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product.maxTemp" class="form-control" />
+                        <span asp-validation-for="Product.maxTemp" class="text-danger"></span>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <div class="col-4">
                         <label asp-for="Product.Image"></label>
@@ -73,18 +90,19 @@
                         <input type="file" name="files" id="uploadbox" multiple class="form-control" />
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="Product.CategoryId"></label>
+                        <label asp-for="Product.FluidPartMatreialId"></label>
                     </div>
                     <div class="col-8">
-                        <select id="selectSquad" asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" onchange="ProductAddParam()" class="form-control">
-                            <option selected>--Выберите тип оборудования--</option>
+                        <select id="selectSquad" asp-for="Product.FluidPartMatreialId" asp-items="@Model.FluidPartMaterialSelectList" class="form-control">
+                            <option selected>--Выберите материал проточной части--</option>
                         </select>
-                        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                        <span asp-validation-for="Product.FluidPartMatreialId" class="text-danger"></span>
                     </div>
                 </div>
+
+
                 @{
                     if (Model.Product.Name != null && Model.Product.Name.Contains("ПГА"))
                         {
@@ -100,6 +118,7 @@
                 <div id="Dampener" style="display:none">
                     <partial name="_PulsationDampenerAdditionalProperties" />
                 </div>
+
                 @{
                     if (Model.Product.Name != null && Model.Product.Name.Contains("НД"))
                         {
@@ -115,7 +134,17 @@
                 <div id="NdNdm" style="display:none">
                     <partial name="_MeteringPumpAdditionalProperties" />
                 </div>
-
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.CategoryId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select id="selectSquad" asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" onchange="ProductAddParam()" class="form-control">
+                            <option selected>--Выберите тип оборудования--</option>
+                        </select>
+                        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <div class="col-4">
@@ -139,7 +168,6 @@
                                 }
                             else
                                 {//create
-
                                 <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Создать" />
                                 }
                         </div>
@@ -191,28 +219,29 @@
         }
     </script>
     <script>
-        function ProductAddParam() {
-        var select = document.getElementById('selectSquad');
-        var text = select.options[select.selectedIndex].text;
-        if (text == "Пневмогидроаккумуляторы типа ПГА") {
-            var findPGA = document.getElementById('Dampener');
-            findPGA.style = "display: flow";
-            var findND = document.getElementById('NdNdm');
-            findND.style = "display: none";
+        function ProductAddParam()
+        {
+            var select = document.getElementById('selectSquad');
+            var selected = select.options[select.selectedIndex].text;
+            if (selected.includes("ПГА")) {
+                var findPGA = document.getElementById('Dampener');
+                findPGA.style = "display: flow";
+                var findND = document.getElementById('NdNdm');
+                findND.style = "display: none";                
+            }
+            else if (selected.includes("НД")) {
+                var findPGA = document.getElementById('Dampener');
+                findPGA.style = "display: none";
+                var findND = document.getElementById('NdNdm');
+                findND.style = "display: flow";
+            }
+            else {
+                var findND = document.getElementById('NdNdm');
+                findND.style = "display: none";
+                var findPGA = document.getElementById('Dampener');
+                findPGA.style = "display: none";
+            }
         }
-        else if (text == "Агрегаты электронасосные типа НД и НДМ") {
-            var findPGA = document.getElementById('Dampener');
-            findPGA.style = "display: none";
-            var findND = document.getElementById('NdNdm');
-            findND.style = "display: flow";
-        }
-        else {
-            var findND = document.getElementById('NdNdm');
-            findND.style = "display: none";
-            var findPGA = document.getElementById('Dampener');
-            findPGA.style = "display: none";
-        }
-    }
     </script>
 }
 

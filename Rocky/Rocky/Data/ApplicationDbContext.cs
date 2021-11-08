@@ -20,6 +20,9 @@ namespace Rocky.Data
         public DbSet<ApplicationType> ApplicationType { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<Product> Product { get; set; }
-
+        public DbSet<Fluid> Fluid { get; set; }
+        public DbSet<FluidPartMaterial> FluidPartMaterial { get; set; }
+        public DbSet<FluidFluidPartMaterial> FluidFluidPartMaterial { get; set; }
+        public DbSet<Requirements> Requirements { get; set; }
         }
     }

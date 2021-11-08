@@ -40,28 +40,28 @@
                                     </div>
                                     @if (Model.Product.Name.Contains("ПГА"))
                                         {
-                                        <div class="container rounded p-2">
-                                            <div class="row">
-                                                <label asp-for="@Model.Product.TypePGA"></label>
-                                                <span> : @Model.Product.TypePGA</span>
-                                            </div>
-                                            <div class="row">
-                                                <label asp-for="@Model.Product.Volume"></label>
-                                                <span> : @Model.Product.Volume</span>
-                                            </div>
-                                            <div class="row">
-                                                <label asp-for="@Model.Product.P2PGA"></label>
-                                                <span> : @Model.Product.P2PGA</span>
-                                            </div>
-                                            <div class="row">
-                                                <label asp-for="@Model.Product.MaterialOfFlowPartPGA"></label>
-                                                <span> : @Model.Product.MaterialOfFlowPartPGA</span>
-                                            </div>
-                                            <div class="row">
-                                                <label asp-for="@Model.Product.ExplosionProofPGA"></label>
-                                                <span> : @Model.Product.ExplosionProofPGA</span>
-                                            </div>
-                                        </div>
+                                <div class="container rounded p-2">
+                                    <div class="row">
+                                        <label asp-for="@Model.Product.TypePGA"></label>
+                                        <span> : @Model.Product.TypePGA</span>
+                                    </div>
+                                    <div class="row">
+                                        <label asp-for="@Model.Product.Volume"></label>
+                                        <span> : @Model.Product.Volume</span>
+                                    </div>
+                                    <div class="row">
+                                        <label asp-for="@Model.Product.P2PGA"></label>
+                                        <span> : @Model.Product.P2PGA</span>
+                                    </div>
+                                    <div class="row">
+                                        <label asp-for="@Model.Product.FluidPartMaterial.Name"></label>
+                                        <span> : @Model.Product.FluidPartMaterial.Name</span>
+                                    </div>
+                                    <div class="row">
+                                        <label asp-for="@Model.Product.ExplosionProofPGA"></label>
+                                        <span> : @Model.Product.ExplosionProofPGA</span>
+                                    </div>
+                                </div>
                                         }
                                     @if (Model.Product.Name.Contains("НД"))
                                         {
@@ -99,8 +99,8 @@
                                                 <span> : @Model.Product.Stroke_length</span>
                                             </div>
                                             <div class="row">
-                                                <label asp-for="@Model.Product.MaterialOfFlowPartPump"></label>
-                                                <span> : @Model.Product.MaterialOfFlowPartPump</span>
+                                                <label asp-for="@Model.Product.FluidPartMaterial.Name"></label>
+                                                <span> : @Model.Product.FluidPartMaterial.Name</span>
                                             </div>
                                             <div class="row">
                                                 <label asp-for="@Model.Product.ExplosionProofPump"></label>

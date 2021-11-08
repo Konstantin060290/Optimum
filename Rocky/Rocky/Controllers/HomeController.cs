@@ -29,7 +29,7 @@ namespace Rocky.Controllers
             {
             HomeVM homeVM = new HomeVM()
                 {
-                Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).Include(u=>u.FluidPartMaterial),
                 Categories = _db.Category
                 };
 
@@ -44,7 +44,7 @@ namespace Rocky.Controllers
                 {
                 HomeVM homeVM = new HomeVM()
                     {
-                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).Include(u => u.FluidPartMaterial),
                     Categories = _db.Category,
                     DesignNumber = DesignNumber,
                     P2PGA = P2PGA
@@ -55,7 +55,7 @@ namespace Rocky.Controllers
                 {
                 HomeVM homeVM = new HomeVM()
                     {
-                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).Include(u => u.FluidPartMaterial),
                     Categories = _db.Category,
                     DesignNumber = DesignNumber
                     };
@@ -65,7 +65,7 @@ namespace Rocky.Controllers
                 {
                 HomeVM homeVM = new HomeVM()
                     {
-                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).Include(u => u.FluidPartMaterial),
                     Categories = _db.Category,
                     P2PGA = P2PGA
                     };
@@ -75,7 +75,7 @@ namespace Rocky.Controllers
                 {
                 HomeVM homeVM = new HomeVM()
                     {
-                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType),
+                    Products = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).Include(u => u.FluidPartMaterial),
                     Categories = _db.Category
                     };
                 return View(homeVM);
@@ -98,7 +98,7 @@ namespace Rocky.Controllers
 
             DetailsVM detailsVM = new DetailsVM()
                 {
-                Product = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType)
+                Product = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType).Include(u=>u.FluidPartMaterial)
                 .Where(u => u.Id == id).FirstOrDefault(),
                 ExistInCart = false
                 };             
