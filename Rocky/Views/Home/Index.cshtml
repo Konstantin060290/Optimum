@@ -1,0 +1,90 @@
+﻿@model Rocky.Models.ViewModels.HomeVM
+
+
+<div class="container">
+    <div class=" text-center">
+        <button class="btn btn-dark filter-button mt-1" data-filter="all">Все</button>
+        @foreach (var obj in Model.Categories)
+            {
+            <button class="btn btn-outline-secondary filter-button mt-1" id="@obj.Name" data-filter="@obj.Name.Replace(' ', '_')" onclick="Filter()">
+                @obj.Name
+            </button>
+            }
+    </div>
+    <br />
+    <form id="PGA" method="post" enctype="multipart/form-data" class="align-content-center" style="display:none">
+        <label>Фильтр для ПГА</label>
+        <div class="form-group">
+            <input asp-for="DesignNumber" name="DesignNumber" class="form-control p-1" style="width:30%" placeholder="Введите обозначение" />
+        </div>
+        <div class="form-group">
+            <label>Введите максимальное давление, бар</label>
+            <input asp-for="P2PGA" name="P2PGA" class="form-control p-1" style="width: 30%" />
+        </div>
+        <button type="submit" class="btn btn-dark filter-button mt-1">Применить фильтры</button>
+    </form>
+    <br />
+
+    <div class="row">
+        @foreach (var prod in Model.Products)
+            {
+            @if (Model.DesignNumber == null & Model.P2PGA == 0)
+                {
+                <partial name="_IndividualProductCard" model="prod" />
+                }
+            @if (prod.DesignNumber == Model.DesignNumber)
+                {
+                <partial name="_IndividualProductCard" model="prod" />
+                }
+            @if (prod.P2PGA == Model.P2PGA & Model.P2PGA != 0)
+                {
+                <partial name="_IndividualProductCard" model="prod" />
+                }
+            @if (prod.DesignNumber == Model.DesignNumber & prod.P2PGA == Model.P2PGA & Model.P2PGA != 0)
+                {
+                <partial name="_IndividualProductCard" model="prod" />
+                }
+            }
+    </div>
+</div>
+
+
+@section Scripts
+{
+<script>
+    function Filter() {
+        var findPGA = document.getElementById("Пневмогидроаккумуляторы типа ПГА")
+        findPGA.addEventListener('click', {
+            handleEvent() {
+                var find = document.getElementById("PGA")
+                find.style = "display: flow";
+            }
+        });
+        findPGA.addEventListener('dblclick', {
+            handleEvent() {
+                var find = document.getElementById("PGA")
+                find.style = "display: none";
+            }
+        });
+    }
+</script>
+    <script>
+        $(document).ready(function () {
+
+            $(".filter-button").click(function () {
+
+                var value = $(this).attr('data-filter');
+                if (value == "all") {
+                    $('.filter').show('1000');
+                }
+                else {
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+
+                }
+            });
+        });
+    </script>
+
+
+}

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Rocky.Models.Fluid>
+
+
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Перекачиваемые жидкости
+            </h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Fluid" asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> &nbsp; Добавить перекачиваемую жидкость</a>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    @if (Model.Count() > 0)
+        {
+        Fluid fl = new Fluid();
+        <table class="table table-bordered table table-striped" style="width:100%">
+             <thead>
+                 <tr>
+                     <th><label asp-for="@fl.Id"></label></th>
+                     <th><label asp-for="@fl.Name"></label></th>
+                     <th><label asp-for="@fl.Temperature"></label></th>
+                     <th><label asp-for="@fl.Density"></label></th>
+                     <th><label asp-for="@fl.Kinematic_Viscosity"></label></th>
+                     <th><label asp-for="@fl.Vapor_Pressure"></label></th>
+                     <th><label asp-for="@fl.PH"></label></th>
+                     <th></th>
+                 </tr>
+             </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                    {
+                <tr>
+                    <td width="10%">@obj.Id</td>
+                    <td width="20%">@obj.Name</td>
+                    <td width="14%">@obj.Temperature</td>
+                    <td width="14%">@obj.Density</td>
+                    <td width="14%">@obj.Kinematic_Viscosity</td>
+                    <td width="14%">@obj.Vapor_Pressure</td>
+                    <td width="14%">@obj.PH</td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Fluid" asp-action="Edit" asp-route-Id="@obj.Id" class="btn btn-primary mx-2"><i class="fas fa-edit"></i></a>
+                            <a asp-controller="Fluid" asp-action="Delete" asp-route-Id="@obj.Id" class="btn btn-danger mx-2"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                    }
+
+            </tbody>
+        </table>
+        }
+    else
+        {
+        <p>Нет добавленных перекачиваемых жидкостей</p>
+        }
+
+</div>
+
