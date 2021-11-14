@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'optimumsystem'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8D985405680F4319B3DD6E721890B2F1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F71F80543D4443F1A07900AFD6A93F1E }}
           package: .
